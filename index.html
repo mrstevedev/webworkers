@@ -6,8 +6,8 @@
     <title>Web Workers</title>
 </head>
 <body>
-    <header>Web Workers Demo</header>
     <main>
+        <button id="btn">Get API data</button>
         <pre id="output"></pre>
     </main>
     <script>
@@ -15,6 +15,7 @@
         // The purpose with a web worker is so that background code is ran in the background
         // so that long processes do not block the main event loop, causing a slow UI.
         let output = document.getElementById('output');
+        let button = document.getElementById('btn');
         let worker;
         document.addEventListener('DOMContentLoaded', init);
 
@@ -26,7 +27,7 @@
 
             //worker.postMessage('Get Started');
 
-            document.body.addEventListener('click', () => {
+            btn.addEventListener('click', () => {
                 // Send another message to the worker 
                 // worker.postMessage('Other');
                 worker.postMessage({"do": "fetch"});
